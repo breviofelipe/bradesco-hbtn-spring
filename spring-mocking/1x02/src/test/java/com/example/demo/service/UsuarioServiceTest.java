@@ -36,8 +36,7 @@ public class UsuarioServiceTest {
 
         Usuario resultado = usuarioService.buscarUsuarioPorId(id);
 
-        assertNotNull(resultado);
-        assertSame(usuario, resultado);
+        assertEquals(usuario, resultado);
         verify(usuarioRepository, times(1)).findById(id);
     }
 
@@ -57,9 +56,8 @@ public class UsuarioServiceTest {
         when(usuarioRepository.save(entrada)).thenReturn(salvo);
 
         Usuario resultado = usuarioService.salvarUsuario(entrada);
-
-        assertNotNull(resultado);
-        assertSame(salvo, resultado);
+        
+        assertEquals(salvo, resultado);
         verify(usuarioRepository, times(1)).save(entrada);
     }
 
