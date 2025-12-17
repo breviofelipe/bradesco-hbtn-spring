@@ -34,7 +34,7 @@ class ProdutoServiceTest {
         Produto produto = Mockito.mock(Produto.class);
         Mockito.when(produtoRepository.findById(1L)).then(invocationOnMock -> Optional.of(produto));
         Produto produto1 = produtoService.buscarPorId(1L);
-        assertNotNull(produto1);
+        assertEquals(produto, produto1);
     }
 
 
